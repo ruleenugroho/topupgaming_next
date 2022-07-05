@@ -30,7 +30,7 @@ export default function CompleteCheckout() {
           </Link>
           <a
             className="btn btn-whatsapp fw-medium text-lg color-palette-1 rounded-pill"
-            href="#"
+            href="https://wa.me/082234897792?text=Saya%20sudah%20melakukan%20pembayaran"
             role="button"
           >
             WhatsApp ke Admin

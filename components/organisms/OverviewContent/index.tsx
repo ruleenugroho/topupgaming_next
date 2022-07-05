@@ -1,7 +1,31 @@
+import { useCallback, useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import {
+  HistoryTransactionTypes,
+  TopUpCategoriesTypes,
+} from "../../../services/data-types";
+import { getMemberOverview } from "../../../services/member";
 import Category from "./Category";
 import TableRow from "./TableRow";
 
 export default function OverviewContent() {
+  const [count, setCount] = useState([]);
+  const [data, setData] = useState([]);
+
+  const getData = useCallback(async () => {
+    const result = await getMemberOverview();
+    if (result.error) {
+      toast.error(result.message);
+    } else {
+      setCount(result.data.count);
+      setData(result.data.data);
+    }
+  }, []);
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const IMG = process.env.NEXT_PUBLIC_IMG;
   return (
     <main className="main-wrapper">
       <div className="ps-lg-0">
@@ -12,18 +36,12 @@ export default function OverviewContent() {
           </p>
           <div className="main-content">
             <div className="row">
-              <Category icon="dekstop" nominal={18000500}>
-                Game
-                <br /> Desktop
-              </Category>
-              <Category icon="mobile" nominal={8455000}>
-                Game
-                <br /> Mobile
-              </Category>
-              <Category icon="dekstop" nominal={5000000}>
-                Other
-                <br /> Categories
-              </Category>
+              {count.map((item: TopUpCategoriesTypes) => (
+                <Category key={item._id} icon="dekstop" nominal={item.value}>
+                  Game
+                  <br /> {item.name}
+                </Category>
+              ))}
             </div>
           </div>
         </div>
@@ -44,38 +62,19 @@ export default function OverviewContent() {
                 </tr>
               </thead>
               <tbody>
-                <TableRow
-                  title="Mobile Legends: The New Battle 2021"
-                  category="Dekstop"
-                  image="overview-1"
-                  price={290000}
-                  status="Pending"
-                  item={200}
-                />
-                <TableRow
-                  title="Call of Duty:Modern"
-                  category="Dekstop"
-                  image="overview-2"
-                  price={740000}
-                  status="Success"
-                  item={550}
-                />
-                <TableRow
-                  title="Clash of Clans"
-                  category="Mobile"
-                  image="overview-3"
-                  price={120000}
-                  status="Failed"
-                  item={100}
-                />
-                <TableRow
-                  title="The Royal Game"
-                  category="Mobile"
-                  image="overview-4"
-                  price={200000}
-                  status="Pending"
-                  item={225}
-                />
+                {data.map((item: HistoryTransactionTypes) => {
+                  return (
+                    <TableRow
+                      key={item._id}
+                      title={item.historyVoucherTopup.gameName}
+                      category={item.historyVoucherTopup.category}
+                      image={`${IMG}/${item.historyVoucherTopup.thumbnail}`}
+                      price={item.value}
+                      status={item.status}
+                      item={`${item.historyVoucherTopup.coinQuantity} ${item.historyVoucherTopup.coinName}`}
+                    />
+                  );
+                })}
               </tbody>
             </table>
           </div>

@@ -4,7 +4,7 @@ interface InputProps {
   placeholder: string;
   id: string;
 }
-export default function Input(props: InputProps) {
+export default function Input(props: Partial<InputProps>) {
   const { label, type, placeholder, id, ...nativeProps } = props;
   return (
     <label

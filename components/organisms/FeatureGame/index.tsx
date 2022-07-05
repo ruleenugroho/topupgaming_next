@@ -1,14 +1,21 @@
+import { useCallback, useEffect, useState } from "react";
 import GameItem from "../../molecules/GameItem";
-import { useEffect } from "react";
-import axios from "axios";
+import { getFeaturedGame } from "../../../services/player";
+import { GameItemTypes } from "../../../services/data-types";
 
-export default function FeatureGame() {
-  useEffect(async () => {
-    const data = await axios.get(
-      "https://topup-gaming.herokuapp.com/api/v1/players/landingpage"
-    );
-    console.log(data);
+export default function FeaturedGame() {
+  const [gameList, setGameList] = useState([]);
+
+  const getFeatureGameList = useCallback(async () => {
+    const data = await getFeaturedGame();
+    setGameList(data.data);
+  }, [getFeaturedGame]);
+
+  useEffect(() => {
+    getFeatureGameList();
   }, []);
+
+  const API_IMG = process.env.NEXT_PUBLIC_IMG;
   return (
     <section className="featured-game pt-50 pb-50">
       <div className="container-fluid">
@@ -21,31 +28,17 @@ export default function FeatureGame() {
           className="d-flex flex-row flex-lg-wrap overflow-setting justify-content-lg-between gap-lg-3 gap-4"
           data-aos="fade-up"
         >
-          <GameItem
-            thumbnail="Thumbnail-1"
-            title="Super Mechs"
-            category="Mobile"
-          />
-          <GameItem
-            thumbnail="Thumbnail-2"
-            title="Call of Duty: Modern"
-            category="Mobile"
-          />
-          <GameItem
-            thumbnail="Thumbnail-3"
-            title="Mobile Legends"
-            category="Mobile"
-          />
-          <GameItem
-            thumbnail="Thumbnail-4"
-            title="Clash of Clans"
-            category="Mobile"
-          />
-          <GameItem
-            thumbnail="Thumbnail-5"
-            title="Valorant"
-            category="Desktop"
-          />
+          {gameList.map((item: GameItemTypes) => {
+            return (
+              <GameItem
+                key={item._id}
+                thumbnail={`${API_IMG}/${item.thumbnail}`}
+                title={item.name}
+                category={item.category.name}
+                id={item._id}
+              />
+            );
+          })}
         </div>
       </div>
     </section>

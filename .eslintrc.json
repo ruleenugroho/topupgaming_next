@@ -30,8 +30,22 @@
     "linebreak-style": 0,
     "quotes": ["error", "double"],
     "arrow-body-style": ["error", "always"],
-    "comma-dangle": ["error", "always-multiline"],
+    "comma-dangle": "off",
     "react/jsx-props-no-spreading": "off",
-    "object-curly-newline": "off"
+    "object-curly-newline": "off",
+    "spaced-comment": "off",
+    "no-tabs": "off",
+    "indent": "off",
+    "no-underscore-dangle": "off",
+    "function-paren-newline": "off",
+    "arrow-body-style": "off",
+    "implicit-arrow-linebreak": "off",
+    "prefer-const": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "operator-linebreak": "off",
+    "react/require-default-props": "off",
+    "react/jsx-curly-newline": "off"
   }
 }

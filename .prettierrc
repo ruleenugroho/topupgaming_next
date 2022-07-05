@@ -1,0 +1,11 @@
+{
+  "tabWidth": 2,
+  "verrides": [
+    {
+      "fi": "*.css",
+      "ons": {
+        "h": 4
+      }
+    }
+  ]
+}
