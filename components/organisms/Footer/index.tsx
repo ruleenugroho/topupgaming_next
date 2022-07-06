@@ -14,7 +14,7 @@ export default function Footer() {
                 </a>
               </Link>
               <p className="mt-30 text-lg color-palette-1 mb-30">
-                StoreGG membantu gamers
+                TopUpGaming membantu gamers
                 <br />
                 untuk menjadi pemenang sejati
               </p>
@@ -93,16 +93,16 @@ export default function Footer() {
                   </p>
                   <ul className="list-unstyled">
                     <li className="mb-6">
-                      <Link href="mailto: hi@store.gg">
+                      <Link href="mailto: hi@topup.gaming">
                         <a className="text-lg color-palette-1 text-decoration-none">
-                          hi@store.gg
+                          hi@topup.gaming
                         </a>
                       </Link>
                     </li>
                     <li className="mb-6">
-                      <Link href="mailto: team@store.gg">
+                      <Link href="mailto: team@topup.gaming">
                         <a className="text-lg color-palette-1 text-decoration-none">
-                          team@store.gg
+                          team@topup.gaming
                         </a>
                       </Link>
                     </li>
