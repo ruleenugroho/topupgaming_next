@@ -17,7 +17,6 @@ export default function Profile() {
     if (token) {
       const jwtToken = atob(token);
       const payload: JWTPayloadTypes = jwtDecode(jwtToken);
-      console.log(payload);
       const userPayload: UserTypes = payload.player;
       const img = process.env.NEXT_PUBLIC_IMG;
       userPayload.avatar = `${img}/${userPayload.avatar}`;
@@ -35,7 +34,7 @@ export default function Profile() {
           alt=""
         />
       </div>
-      <h2 className="fw-bold text-xl color-palette-1 m-0">{user.username}</h2>
+      <h2 className="fw-bold text-xl color-palette-1 m-0">{user.name}</h2>
       <p className="color-palette-2 m-0">{user.email}</p>
     </div>
   );

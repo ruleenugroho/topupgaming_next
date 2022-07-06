@@ -36,7 +36,6 @@ export default function Auth() {
   };
 
   if (isLogin) {
-    console.log(user);
     return (
       <li className="nav-item my-auto dropdown d-flex">
         <div className="vertical-line d-lg-block d-none"></div>

@@ -10,7 +10,7 @@ import { JWTPayloadTypes, UserTypes } from "../../services/data-types";
 import { updateProfile } from "../../services/member";
 
 export default function EditProfile() {
-  const [user, setUser] = useState({
+  const [user, setUser] = useState<UserTypes>({
     avatar: "/icon/upload.svg",
     email: "",
     id: "",
@@ -34,12 +34,10 @@ export default function EditProfile() {
   }, []);
 
   const onSubmit = async () => {
-    console.log(user);
-
     const data = new FormData();
 
     data.append("image", user.avatar);
-    data.append("name", user.username);
+    data.append("name", user.name);
     data.append("phoneNumber", user.phoneNumber);
     const result = await updateProfile(data);
     if (result.error) {
@@ -92,8 +90,8 @@ export default function EditProfile() {
                       type="file"
                       name="avatar"
                       accept="image/png, image/jpeg"
-                      onChange={(event: any) => {
-                        const img = event.target.files[0];
+                      onChange={(event) => {
+                        const img = event.target.files![0];
                         setImagePreview(URL.createObjectURL(img));
                         return setUser({
                           ...user,
@@ -110,11 +108,11 @@ export default function EditProfile() {
                   type="text"
                   placeholder="Enter your name"
                   id="name"
-                  value={user.username}
-                  onChange={(event: any) =>
+                  value={user.name}
+                  onChange={(event) =>
                     setUser({
                       ...user,
-                      username: event.target.value,
+                      name: event.target.value,
                     })
                   }
                 />

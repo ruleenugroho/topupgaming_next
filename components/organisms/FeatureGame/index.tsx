@@ -1,19 +1,11 @@
-import { useCallback, useEffect, useState } from "react";
 import GameItem from "../../molecules/GameItem";
-import { getFeaturedGame } from "../../../services/player";
 import { GameItemTypes } from "../../../services/data-types";
 
-export default function FeaturedGame() {
-  const [gameList, setGameList] = useState([]);
-
-  const getFeatureGameList = useCallback(async () => {
-    const data = await getFeaturedGame();
-    setGameList(data.data);
-  }, [getFeaturedGame]);
-
-  useEffect(() => {
-    getFeatureGameList();
-  }, []);
+interface gameListProps {
+  gameList: GameItemTypes[];
+}
+export default function FeaturedGame(props: gameListProps) {
+  const { gameList } = props;
 
   const API_IMG = process.env.NEXT_PUBLIC_IMG;
   return (
