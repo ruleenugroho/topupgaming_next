@@ -6,7 +6,7 @@ export default function Illustration() {
       <div className="d-flex justify-content-lg-end justify-content-center me-lg-5">
         <div className="position-relative" data-aos="zoom-in">
           <Image
-            src="/img/Header-banner.png"
+            src="/img/header-banner.png"
             className="img-fluid"
             height={500}
             width={500}
