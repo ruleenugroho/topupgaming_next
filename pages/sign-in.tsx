@@ -13,9 +13,9 @@ export default function SignIn() {
                 <Link href="/">
                   <a className="navbar-brand">
                     <Image
-                      src="/icon/logo.svg"
-                      width={60}
-                      height={60}
+                      src="/img/icon.png"
+                      width={85}
+                      height={85}
                       alt="logo"
                     />
                   </a>

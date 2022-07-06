@@ -10,7 +10,7 @@ export default function Footer() {
             <div className="col-lg-4 text-lg-start text-center">
               <Link href="/#" className="mb-30">
                 <a>
-                  <Image src="/icon/logo.svg" width={60} height={60} />
+                  <Image src="/img/icon.png" width={100} height={100} />
                 </a>
               </Link>
               <p className="mt-30 text-lg color-palette-1 mb-30">

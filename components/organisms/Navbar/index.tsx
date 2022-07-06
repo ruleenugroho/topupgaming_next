@@ -11,7 +11,7 @@ export default function Navbar() {
         <div className="container-fluid">
           <Link className="navbar-brand" href="/#">
             <a>
-              <Image src="/icon/logo.svg" width={60} height={60} />
+              <Image src="/img/logo.png" width={200} height={60} />
             </a>
           </Link>
           <ToggleMenu />

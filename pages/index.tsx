@@ -24,6 +24,7 @@ const Home: NextPage<gameListProps> = (props: gameListProps) => {
     <>
       <Head>
         <title>TopUpGaming - Get a New Experience in Gaming</title>
+        <link rel="icon" type="image/x-icon" href="/img/icon.ico"></link>
         <meta
           name="description"
           content="Kami menyediakan jutaan cara untuk membantu
@@ -40,9 +41,9 @@ players menjadi pemenang sejati"
         />
         <meta
           property="og:image"
-          content="http://localhost:3000/icon/logo.svg"
+          content="https://topupgaming.vercel.app/img/logo.png"
         />
-        <meta property="og:url" content="http://localhost:3000" />
+        <meta property="og:url" content="https://topupgaming.vercel.app" />
       </Head>
       {/* Navbar */}
       <Navbar />

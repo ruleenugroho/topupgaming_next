@@ -11,7 +11,7 @@ export default function Checkout() {
         <div className="logo text-md-center text-start pb-50">
           <Link href="/">
             <a>
-              <Image src="/icon/logo.svg" width={60} height={60} alt="logo" />
+              <Image src="/img/logo.png" width={300} height={100} alt="logo" />
             </a>
           </Link>
         </div>
