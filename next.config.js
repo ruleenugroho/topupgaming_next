@@ -7,6 +7,6 @@
 
 module.exports = {
 	images: {
-		domains: ["topup-gaming.herokuapp.com", ""],
+		domains: ["topup-gaming.herokuapp.com", "", "localhost"],
 	},
 };

@@ -27,7 +27,7 @@ export default function EditProfile() {
       const jwtToken = atob(token);
       const payload: JWTPayloadTypes = jwtDecode(jwtToken);
       const userPayload: UserTypes = payload.player;
-      const img = process.env.NEXT_PUBLIC_IMG;
+      const img = process.env.NEXT_PUBLIC_IMG_PROFILE;
       userPayload.avatar = `${img}/${userPayload.avatar}`;
       setUser(userPayload);
     }
