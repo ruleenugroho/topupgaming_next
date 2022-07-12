@@ -29,8 +29,8 @@ export default function Profile() {
         <Image
           src={user.avatar}
           className="rounded-circle"
-          width="90"
-          height="90"
+          width="91"
+          height="91"
           alt=""
         />
       </div>
