@@ -1,4 +1,4 @@
-import Image from "next/image";
+//import Image from "next/image";
 import Link from "next/link";
 import Cookies from "js-cookie";
 import jwtDecode from "jwt-decode";
@@ -48,7 +48,7 @@ export default function Auth() {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <Image
+              <img
                 src={user.avatar}
                 className="rounded-circle"
                 width="40"
